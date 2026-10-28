@@ -1,0 +1,35 @@
+# Render Blueprint: creates both services from this repository.
+# Render dashboard -> New -> Blueprint -> pick this repo. You will be asked for the
+# values marked `sync: false` (they are never stored in this file).
+services:
+  # Optional AI tutor backend (FastAPI)
+  - type: web
+    name: ai-8086-tutor-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: ALLOWED_ORIGINS
+        sync: false # e.g. https://ai-8086-emulator.onrender.com
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "20"
+
+  # The emulator itself (static React build)
+  - type: web
+    name: ai-8086-emulator
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false # e.g. https://ai-8086-tutor-api.onrender.com

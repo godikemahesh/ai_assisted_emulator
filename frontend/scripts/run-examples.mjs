@@ -22,7 +22,7 @@ for (const ex of EXAMPLES) {
   out.push(`| ${regs.join(' | ')} |`, `|${regs.map(() => '---').join('|')}|`, `| ${regs.map((r) => s.registersHex[r]).join(' | ')} |`, '');
   out.push(`**Flags:** ${FLAG_ORDER.map((f) => `${f}=${s.flags[f]}`).join(' ')} (FLAGS = ${s.registersHex.FLAGS}h)`, '');
   if (s.variables.length) {
-    out.push(`**Variables:** ${s.variables.map((v) => `${v.name} = ${v.size === 'BYTE' ? v.value.slice(2) : v.value}h`).join(', ')}`, '');
+    out.push(`**Variables:** ${s.variables.map((v) => `${v.name} = ${v.size === 'BYTE' ? v.value.slice(2) : v.value}h${v.count > 1 ? ' (first element)' : ''}`).join(', ')}`, '');
   }
   out.push('<details><summary>Execution trace</summary>', '');
   out.push('| # | CS:IP | Bytes | Instruction | What happened | Changes |', '|---|---|---|---|---|---|');

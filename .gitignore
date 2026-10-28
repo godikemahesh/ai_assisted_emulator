@@ -1,5 +1,23 @@
-.venv
+# Secrets — never commit real keys
 .env
-__pytest_cache/
-node_modules
-tests/
+.env.*
+!.env.example
+
+# Node / Vite
+node_modules/
+frontend/dist/
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -16,7 +16,10 @@ export function VariablesPanel({ variables }) {
                 <td><code>{v.name}</code></td>
                 <td className="mono">DS:{v.offset}</td>
                 <td>{v.size}{v.count > 1 ? ` × ${v.count}` : ''}</td>
-                <td className="mono">{v.size === 'BYTE' ? v.value.slice(2) : v.value}h</td>
+                <td className="mono">
+                  {v.size === 'BYTE' ? v.value.slice(2) : v.value}h
+                  {v.count > 1 && <span className="muted small"> (first)</span>}
+                </td>
               </tr>
             ))}
           </tbody>

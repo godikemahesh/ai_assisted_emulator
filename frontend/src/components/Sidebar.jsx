@@ -1,7 +1,7 @@
 import { IconChip, IconMemory, IconTrace, IconCode, IconSpark, IconBook } from './Icons.jsx';
 
 export const VIEWS = [
-  { id: 'debugger', label: 'Debugger', title: 'Debugger', description: 'Edit, assemble and step through your program.', Icon: IconChip },
+  { id: 'debugger', label: 'Debugger', title: 'Debugger', description: 'Write 8086 assembly, assemble it to machine code, and step through it while registers, flags and memory update.', Icon: IconChip },
   { id: 'memory', label: 'Memory', title: 'Memory', description: '1 MB address space · physical = segment × 16 + offset.', Icon: IconMemory },
   { id: 'trace', label: 'Execution trace', title: 'Execution trace', description: 'Every executed instruction and what it changed.', Icon: IconTrace },
   { id: 'listing', label: 'Machine code', title: 'Machine code', description: 'The bytes the assembler produced for each line.', Icon: IconCode },
@@ -15,8 +15,8 @@ export default function Sidebar({ view, onView, badges, status, aiStatus }) {
       <div className="brand">
         <div className="brand-mark" aria-hidden="true">86</div>
         <div>
-          <div className="brand-name">8086 Emulator</div>
-          <div className="brand-sub">AI-assisted · educational</div>
+          <div className="brand-name" data-testid="project-title">AI-Assisted 8086</div>
+          <div className="brand-sub">Microprocessor Emulator</div>
         </div>
       </div>
 
