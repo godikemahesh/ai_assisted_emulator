@@ -1,0 +1,5 @@
+.venv
+.env
+__pytest_cache/
+node_modules
+tests/
