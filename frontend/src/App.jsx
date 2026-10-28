@@ -315,7 +315,7 @@ export default function App() {
         </main>
 
         <footer className="footer">
-          Educational, instruction-level simulation of a documented 8086 subset — not cycle-accurate.
+          <strong>AI-Assisted 8086 Microprocessor Emulator</strong> · Educational, instruction-level simulation of a documented 8086 subset — not cycle-accurate.
           Code CS=1000h · data DS=ES=2000h · stack SS=3000h. The AI tutor only explains; it never executes code.
         </footer>
       </div>
